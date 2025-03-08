@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about the ShanghaiWalk team and our mission to promote Shanghai's culture and history">
+    <meta name="keywords" content="Shanghai, culture, history, about us, team, mission">
+    <title>关于我们 | About Us - 上海漫步</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ensure proper rendering and touch zooming -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+    <!-- Header Section with Navigation -->
+    <header role="banner">
+        <div class="logo">
+            <img src="./images/shanghaiwalk-logo.png" alt="ShanghaiWalk Logo" class="logo-img">
+        </div>
+        
+        <div class="language-toggle" aria-label="Language Selection">
+            <button id="en-btn" class="lang-btn" aria-label="Switch to English"><img src="./images/US-flag.png" alt="English"></button>
+            <button id="zh-btn" class="lang-btn" aria-label="Switch to Chinese"><img src="./images/China-flag.png" alt="中文"></button>
+        </div>
+
+        <nav role="navigation" aria-label="Main Navigation">
+            <ul>
+                <li><a href="index.html"><span class="zh">首页</span><span class="en">Home</span></a></li>
+                <li><a href="about.html" class="active" aria-current="page"><span class="zh">关于我们</span><span class="en">About Us</span></a></li>
+                <li><a href="shanghai-walk.html"><span class="zh">上海漫步</span><span class="en">Shanghai Walk</span></a></li>
+                <li><a href="shanghainese.html"><span class="zh">上海话</span><span class="en">Shanghainese</span></a></li>
+                <li><a href="shanghai-opera.html"><span class="zh">上海戏曲</span><span class="en">Shanghai Opera</span></a></li>
+                <li><a href="contact.html"><span class="zh">联系我们</span><span class="en">Contact Us</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Floating Navigation for Mobile and Scroll -->
+    <div class="floating-nav" aria-label="Floating Navigation">
+        <div class="float-left">
+            <img src="./images/shanghaiwalk-logo.png" alt="Mini Logo" class="mini-logo">
+        </div>
+        <div class="float-center">
+            <button class="more-actions" aria-expanded="false" aria-controls="dropdown-menu">
+                <span class="zh">更多选项</span>
+                <span class="en">More Actions</span>
+                <i class="arrow-down" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu" id="dropdown-menu">
+                <a href="index.html"><span class="zh">首页</span><span class="en">Home</span></a>
+                <a href="about.html" class="active" aria-current="page"><span class="zh">关于我们</span><span class="en">About Us</span></a>
+                <a href="shanghai-walk.html"><span class="zh">上海漫步</span><span class="en">Shanghai Walk</span></a>
+                <a href="shanghainese.html"><span class="zh">上海话</span><span class="en">Shanghainese</span></a>
+                <a href="shanghai-opera.html"><span class="zh">上海戏曲</span><span class="en">Shanghai Opera</span></a>
+                <a href="contact.html"><span class="zh">联系我们</span><span class="en">Contact Us</span></a>
+            </div>
+        </div>
+        <div class="float-right">
+            <div class="float-language-toggle" aria-label="Language Selection">
+                <button id="float-en-btn" class="lang-btn" aria-label="Switch to English"><img src="./images/US-flag.png" alt="English"></button>
+                <button id="float-zh-btn" class="lang-btn" aria-label="Switch to Chinese"><img src="./images/China-flag.png" alt="中文"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main role="main">
+        <!-- About Introduction Section -->
+        <section class="about-intro" aria-labelledby="about-heading">
+            <h1 id="about-heading"><span class="zh">关于我们</span><span class="en">About Us</span></h1>
+            <div class="about-content">
+                <div class="zh">
+                    <h2>项目介绍</h2>
+                    <p>上海漫步是一个致力于展示和传播上海本土文化的项目。我们希望通过这个平台，让更多人了解上海的历史文化遗产，感受这座城市的独特魅力。</p>
+                    
+                    <h2>上海弄堂文化</h2>
+                    <p>弄堂（longtang）是上海最具特色的城市肌理，它不仅是一种建筑形式，更是承载着上海人记忆的生活场所。在这里，我们可以看到：</p>
+                    <ul>
+                        <li>石库门建筑的独特魅力</li>
+                        <li>邻里之间的温情互动</li>
+                        <li>地道的上海市井生活</li>
+                        <li>传统与现代的完美融合</li>
+                    </ul>
+                </div>
+
+                <div class="en">
+                    <h2>Project Introduction</h2>
+                    <p>ShanghaiWalk is a project dedicated to showcasing and spreading Shanghai's local culture. Through this platform, we aim to help more people understand Shanghai's historical and cultural heritage, experiencing the unique charm of this city.</p>
+                    
+                    <h2>Shanghai Lane (Longtang) Culture</h2>
+                    <p>The lanes (longtang) are Shanghai's most distinctive urban fabric, representing not just an architectural form but also a living space that carries the memories of Shanghai people. Here, we can see:</p>
+                    <ul>
+                        <li>The unique charm of Shikumen architecture</li>
+                        <li>Warm interactions between neighbors</li>
+                        <li>Authentic Shanghai community life</li>
+                        <li>Perfect fusion of tradition and modernity</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section" aria-labelledby="team-heading">
+            <h2 id="team-heading"><span class="zh">我们的团队</span><span class="en">Our Team</span></h2>
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <article class="team-member">
+                    <div class="member-left">
+                        <div class="member-photo">
+                            <img src="./images/member-placeholder.jpg" alt="Team Member 1 Portrait" class="member-img">
+                        </div>
+                        <div class="zh">
+                            <h3>成员姓名</h3>
+                            <p class="role">团队成员</p>
+                        </div>
+                        <div class="en">
+                            <h3>Member Name</h3>
+                            <p class="role">Team Member</p>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <div class="zh">
+                            <p class="quote">"上海是一座充满活力的城市，它完美地融合了传统与现代。每一条弄堂都诉说着独特的故事，每一个角落都蕴含着深厚的文化底蕴。"</p>
+                        </div>
+                        <div class="en">
+                            <p class="quote">"Shanghai is a vibrant city that perfectly blends tradition with modernity. Every lane tells a unique story, and every corner holds deep cultural significance."</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Team Member 2 -->
+                <article class="team-member">
+                    <div class="member-left">
+                        <div class="member-photo">
+                            <img src="./images/member-placeholder.jpg" alt="Team Member 2 Portrait" class="member-img">
+                        </div>
+                        <div class="zh">
+                            <h3>成员姓名</h3>
+                            <p class="role">团队成员</p>
+                        </div>
+                        <div class="en">
+                            <h3>Member Name</h3>
+                            <p class="role">Team Member</p>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <div class="zh">
+                            <p class="quote">"上海的魅力在于它的包容性，这里有着独特的海派文化，是东西方文化交融的完美见证。"</p>
+                        </div>
+                        <div class="en">
+                            <p class="quote">"Shanghai's charm lies in its inclusivity, featuring unique Haipai culture that perfectly witnesses the fusion of Eastern and Western cultures."</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Team Member 3 -->
+                <article class="team-member">
+                    <div class="member-left">
+                        <div class="member-photo">
+                            <img src="./images/member-placeholder.jpg" alt="Team Member 3 Portrait" class="member-img">
+                        </div>
+                        <div class="zh">
+                            <h3>成员姓名</h3>
+                            <p class="role">团队成员</p>
+                        </div>
+                        <div class="en">
+                            <h3>Member Name</h3>
+                            <p class="role">Team Member</p>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <div class="zh">
+                            <p class="quote">"上海话是一种独特的语言艺术，它承载着这座城市的历史记忆和文化特色。"</p>
+                        </div>
+                        <div class="en">
+                            <p class="quote">"Shanghainese is a unique linguistic art that carries the historical memories and cultural characteristics of this city."</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Team Member 4 -->
+                <article class="team-member">
+                    <div class="member-left">
+                        <div class="member-photo">
+                            <img src="./images/member-placeholder.jpg" alt="Team Member 4 Portrait" class="member-img">
+                        </div>
+                        <div class="zh">
+                            <h3>成员姓名</h3>
+                            <p class="role">团队成员</p>
+                        </div>
+                        <div class="en">
+                            <h3>Member Name</h3>
+                            <p class="role">Team Member</p>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <div class="zh">
+                            <p class="quote">"在上海，传统与现代并存，每一天都能发现这座城市新的精彩。"</p>
+                        </div>
+                        <div class="en">
+                            <p class="quote">"In Shanghai, tradition coexists with modernity, and every day brings new discoveries about this fascinating city."</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Cultural Significance Section -->
+        <section class="cultural-significance" aria-labelledby="cultural-heading">
+            <h2 id="cultural-heading"><span class="zh">文化意义</span><span class="en">Cultural Significance</span></h2>
+            <div class="significance-content">
+                <div class="zh">
+                    <p>上海的非物质文化遗产包括：</p>
+                    <ul>
+                        <li>独特的海派文化</li>
+                        <li>地道的上海方言</li>
+                        <li>传统的沪剧艺术</li>
+                        <li>特色的江南美食</li>
+                        <li>丰富的民间习俗</li>
+                    </ul>
+                </div>
+
+                <div class="en">
+                    <p>Shanghai's intangible cultural heritage includes:</p>
+                    <ul>
+                        <li>Unique Haipai culture</li>
+                        <li>Authentic Shanghai dialect</li>
+                        <li>Traditional Shanghai Opera</li>
+                        <li>Characteristic Jiangnan cuisine</li>
+                        <li>Rich folk customs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer role="contentinfo">
+        <p class="zh">&copy; 2024 上海漫步 版权所有</p>
+        <p class="en">&copy; 2024 ShanghaiWalk. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="main.js"></script>
+</body>
+</html> 

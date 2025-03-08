@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover Shanghai Opera art, its features, and classic plays">
+    <meta name="keywords" content="Shanghai, opera, art, culture, traditional, performance, plays">
+    <title>上海戏曲 | Shanghai Opera - 上海漫步</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ensure proper rendering and touch zooming -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+    <!-- Header Section with Navigation -->
+    <header role="banner">
+        <div class="logo">
+            <img src="./images/shanghaiwalk-logo.png" alt="ShanghaiWalk Logo" class="logo-img">
+        </div>
+        
+        <div class="language-toggle" aria-label="Language Selection">
+            <button id="en-btn" class="lang-btn" aria-label="Switch to English"><img src="./images/US-flag.png" alt="English"></button>
+            <button id="zh-btn" class="lang-btn" aria-label="Switch to Chinese"><img src="./images/China-flag.png" alt="中文"></button>
+        </div>
+
+        <nav role="navigation" aria-label="Main Navigation">
+            <ul>
+                <li><a href="index.html">首页 | Home</a></li>
+                <li><a href="about.html">关于我们 | About Us</a></li>
+                <li><a href="shanghai-walk.html">上海漫步 | Shanghai Walk</a></li>
+                <li><a href="shanghainese.html">上海话 | Shanghainese</a></li>
+                <li><a href="shanghai-opera.html" class="active" aria-current="page">上海戏曲 | Shanghai Opera</a></li>
+                <li><a href="contact.html">联系我们 | Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Floating Navigation for Mobile and Scroll -->
+    <div class="floating-nav" aria-label="Floating Navigation">
+        <div class="float-left">
+            <img src="./images/shanghaiwalk-logo.png" alt="Mini Logo" class="mini-logo">
+        </div>
+        <div class="float-center">
+            <button class="more-actions" aria-expanded="false" aria-controls="dropdown-menu">
+                <span class="zh">更多选项</span>
+                <span class="en">More Actions</span>
+                <i class="arrow-down" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu" id="dropdown-menu">
+                <a href="index.html"><span class="zh">首页</span><span class="en">Home</span></a>
+                <a href="about.html"><span class="zh">关于我们</span><span class="en">About Us</span></a>
+                <a href="shanghai-walk.html"><span class="zh">上海漫步</span><span class="en">Shanghai Walk</span></a>
+                <a href="shanghainese.html"><span class="zh">上海话</span><span class="en">Shanghainese</span></a>
+                <a href="shanghai-opera.html" class="active" aria-current="page"><span class="zh">上海戏曲</span><span class="en">Shanghai Opera</span></a>
+                <a href="contact.html"><span class="zh">联系我们</span><span class="en">Contact Us</span></a>
+            </div>
+        </div>
+        <div class="float-right">
+            <div class="float-language-toggle" aria-label="Language Selection">
+                <button id="float-en-btn" class="lang-btn" aria-label="Switch to English"><img src="./images/US-flag.png" alt="English"></button>
+                <button id="float-zh-btn" class="lang-btn" aria-label="Switch to Chinese"><img src="./images/China-flag.png" alt="中文"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main role="main">
+        <!-- Opera Introduction Section -->
+        <section class="opera-intro" aria-labelledby="opera-heading">
+            <h1 id="opera-heading">沪剧艺术 | Shanghai Opera Art</h1>
+            
+            <div class="intro-content">
+                <div class="image-container">
+                    <img src="./images/shanghai-baigongguan.jpg" alt="Shanghai Opera House - Traditional performance venue" loading="lazy">
+                </div>
+                <div class="zh">
+                    <p>沪剧是上海地方戏曲剧种，以上海方言演唱，具有鲜明的海派文化特色。它起源于清末民初的上海滩簧，经过艺人们的不断改革创新，逐渐发展成为今天的沪剧。</p>
+                </div>
+                <div class="en">
+                    <p>Shanghai Opera is a local opera genre performed in Shanghai dialect, featuring distinctive Haipai cultural characteristics. It originated from Shanghai Tanhuang in the late Qing and early Republican period, and gradually evolved into today's form through continuous innovation by artists.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Opera Features Section -->
+        <section class="opera-features" aria-labelledby="features-heading">
+            <h2 id="features-heading">艺术特色 | Artistic Features</h2>
+            
+            <div class="features-grid">
+                <!-- Singing Style Feature -->
+                <article class="feature-card">
+                    <div class="zh">
+                        <h3>唱腔特点</h3>
+                        <p>沪剧的唱腔以"乌苏调"为主，兼有"拉工调"等多种曲调，音域宽广，表现力丰富。</p>
+                    </div>
+                    <div class="en">
+                        <h3>Singing Style</h3>
+                        <p>Shanghai Opera's singing is primarily based on "Wusu Tune" and includes various styles like "Lagong Tune", featuring a wide vocal range and rich expressiveness.</p>
+                    </div>
+                </article>
+
+                <!-- Performance Style Feature -->
+                <article class="feature-card">
+                    <div class="zh">
+                        <h3>表演程式</h3>
+                        <p>融合了传统戏曲的程式化表演和现代话剧的写实手法，形成独特的表演风格。</p>
+                    </div>
+                    <div class="en">
+                        <h3>Performance Style</h3>
+                        <p>Combines traditional opera's stylized performance with modern drama's realism, creating a unique performance style.</p>
+                    </div>
+                </article>
+
+                <!-- Musical Accompaniment Feature -->
+                <article class="feature-card">
+                    <div class="zh">
+                        <h3>音乐伴奏</h3>
+                        <p>以二胡为主奏乐器，配以传统丝竹乐器和西洋乐器，形成独特的海派音乐风格。</p>
+                    </div>
+                    <div class="en">
+                        <h3>Musical Accompaniment</h3>
+                        <p>Features Erhu as the main instrument, combined with traditional Chinese and Western instruments, creating a unique Haipai musical style.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Classic Plays Section -->
+        <section class="classic-plays" aria-labelledby="plays-heading">
+            <h2 id="plays-heading">经典剧目 | Classic Plays</h2>
+            
+            <div class="plays-list">
+                <!-- Luohan Coin Play -->
+                <article class="play-item">
+                    <div class="zh">
+                        <h3>《罗汉钱》</h3>
+                        <p>讲述了一个关于善良、诚信与救赎的感人故事。</p>
+                    </div>
+                    <div class="en">
+                        <h3>"Luohan Coin"</h3>
+                        <p>A touching story about kindness, honesty, and redemption.</p>
+                    </div>
+                </article>
+
+                <!-- Soul of Red Leaves Play -->
+                <article class="play-item">
+                    <div class="zh">
+                        <h3>《红叶魂》</h3>
+                        <p>描绘了一段凄美的爱情故事，展现了人性的真善美。</p>
+                    </div>
+                    <div class="en">
+                        <h3>"Soul of Red Leaves"</h3>
+                        <p>A poignant love story that showcases the beauty of human nature.</p>
+                    </div>
+                </article>
+
+                <!-- Meeting at the Temple Play -->
+                <article class="play-item">
+                    <div class="zh">
+                        <h3>《庵堂相会》</h3>
+                        <p>展现了母女情深，感人至深的经典剧目。</p>
+                    </div>
+                    <div class="en">
+                        <h3>"Meeting at the Temple"</h3>
+                        <p>A classic play depicting the deep bond between mother and daughter.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer role="contentinfo">
+        <p>&copy; 2024 上海漫步 | ShanghaiWalk. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="main.js"></script>
+</body>
+</html> 

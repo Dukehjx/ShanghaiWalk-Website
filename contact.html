@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact ShanghaiWalk for inquiries about Shanghai cultural tours and experiences">
+    <meta name="keywords" content="Shanghai, contact, WeChat, Xiaohongshu, Bilibili, social media">
+    <title>联系我们 | Contact Us - 上海漫步</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ensure proper rendering and touch zooming -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+    <!-- Header Section with Navigation -->
+    <header role="banner">
+        <div class="logo">
+            <img src="./images/shanghaiwalk-logo.png" alt="ShanghaiWalk Logo" class="logo-img">
+        </div>
+        
+        <div class="language-toggle" aria-label="Language Selection">
+            <button id="en-btn" class="lang-btn" aria-label="Switch to English"><img src="./images/US-flag.png" alt="English"></button>
+            <button id="zh-btn" class="lang-btn" aria-label="Switch to Chinese"><img src="./images/China-flag.png" alt="中文"></button>
+        </div>
+
+        <nav role="navigation" aria-label="Main Navigation">
+            <ul>
+                <li><a href="index.html">首页 | Home</a></li>
+                <li><a href="about.html">关于我们 | About Us</a></li>
+                <li><a href="shanghai-walk.html">上海漫步 | Shanghai Walk</a></li>
+                <li><a href="shanghainese.html">上海话 | Shanghainese</a></li>
+                <li><a href="shanghai-opera.html">上海戏曲 | Shanghai Opera</a></li>
+                <li><a href="contact.html" class="active" aria-current="page">联系我们 | Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Floating Navigation for Mobile and Scroll -->
+    <div class="floating-nav" aria-label="Floating Navigation">
+        <div class="float-left">
+            <img src="./images/shanghaiwalk-logo.png" alt="Mini Logo" class="mini-logo">
+        </div>
+        <div class="float-center">
+            <button class="more-actions" aria-expanded="false" aria-controls="dropdown-menu">
+                <span class="zh">更多选项</span>
+                <span class="en">More Actions</span>
+                <i class="arrow-down" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu" id="dropdown-menu">
+                <a href="index.html"><span class="zh">首页</span><span class="en">Home</span></a>
+                <a href="about.html"><span class="zh">关于我们</span><span class="en">About Us</span></a>
+                <a href="shanghai-walk.html"><span class="zh">上海漫步</span><span class="en">Shanghai Walk</span></a>
+                <a href="shanghainese.html"><span class="zh">上海话</span><span class="en">Shanghainese</span></a>
+                <a href="shanghai-opera.html"><span class="zh">上海戏曲</span><span class="en">Shanghai Opera</span></a>
+                <a href="contact.html" class="active" aria-current="page"><span class="zh">联系我们</span><span class="en">Contact Us</span></a>
+            </div>
+        </div>
+        <div class="float-right">
+            <div class="float-language-toggle" aria-label="Language Selection">
+                <button id="float-en-btn" class="lang-btn" aria-label="Switch to English"><img src="./images/US-flag.png" alt="English"></button>
+                <button id="float-zh-btn" class="lang-btn" aria-label="Switch to Chinese"><img src="./images/China-flag.png" alt="中文"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main role="main">
+        <section class="contact-section" aria-labelledby="contact-heading">
+            <h1 id="contact-heading">联系我们 | Contact Us</h1>
+            
+            <!-- Social Media Grid -->
+            <div class="social-media-grid">
+                <!-- WeChat Card -->
+                <article class="social-card wechat">
+                    <div class="zh">
+                        <h2>微信公众号</h2>
+                        <div class="qr-code">
+                            <img src="./images/shanghaiwalk-logo.png" alt="微信公众号二维码 - 扫描关注上海漫步" class="qr-image">
+                        </div>
+                        <p>扫描二维码关注我们的微信公众号</p>
+                    </div>
+                    <div class="en">
+                        <h2>WeChat Official Account</h2>
+                        <div class="qr-code">
+                            <img src="./images/shanghaiwalk-logo.png" alt="WeChat QR Code - Scan to follow ShanghaiWalk" class="qr-image">
+                        </div>
+                        <p>Scan the QR code to follow our WeChat official account</p>
+                    </div>
+                </article>
+
+                <!-- Xiaohongshu Card -->
+                <article class="social-card xiaohongshu">
+                    <div class="zh">
+                        <h2>小红书</h2>
+                        <div class="qr-code">
+                            <img src="./images/shanghaiwalk-logo.png" alt="小红书二维码 - 扫描关注上海漫步" class="qr-image">
+                        </div>
+                        <p>扫描二维码关注我们的小红书账号</p>
+                    </div>
+                    <div class="en">
+                        <h2>Xiaohongshu</h2>
+                        <div class="qr-code">
+                            <img src="./images/shanghaiwalk-logo.png" alt="Xiaohongshu QR Code - Scan to follow ShanghaiWalk" class="qr-image">
+                        </div>
+                        <p>Scan the QR code to follow us on Xiaohongshu</p>
+                    </div>
+                </article>
+
+                <!-- Bilibili Card -->
+                <article class="social-card bilibili">
+                    <div class="zh">
+                        <h2>哔哩哔哩</h2>
+                        <div class="bilibili-info">
+                            <p class="username">@上海漫步</p>
+                            <p class="description">关注我们的B站账号获取更多视频内容</p>
+                        </div>
+                    </div>
+                    <div class="en">
+                        <h2>Bilibili</h2>
+                        <div class="bilibili-info">
+                            <p class="username">@ShanghaiWalk</p>
+                            <p class="description">Follow us on Bilibili for more video content</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <div class="zh">
+                    <h2>其他联系方式</h2>
+                    <p>邮箱：<a href="mailto:info@shanghaijourney.com">info@shanghaijourney.com</a></p>
+                    <p>工作时间：周一至周五 9:00-18:00</p>
+                </div>
+                <div class="en">
+                    <h2>Other Contact Information</h2>
+                    <p>Email: <a href="mailto:info@shanghaijourney.com">info@shanghaijourney.com</a></p>
+                    <p>Working Hours: Monday-Friday 9:00-18:00</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer role="contentinfo">
+        <p>&copy; 2024 上海漫步 | ShanghaiWalk. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="main.js"></script>
+</body>
+</html> 

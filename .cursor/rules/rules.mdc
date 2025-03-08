@@ -1,0 +1,170 @@
+---
+description: This is for developing websites using html, css, and javascript
+globs: 
+alwaysApply: false
+---
+# Cursor Rules for ShanghaiWalk Development
+
+- always update the README.md file
+
+## Project Overview
+
+ShanghaiWalk is a bilingual (Chinese and English) website dedicated to showcasing and promoting the local culture of Shanghai. The website features:
+
+- **Multilingual Support**: Language toggle functionality with user preferences stored using `localStorage`.
+- **Responsive Design**: Adaptive layouts for various devices using CSS media queries.
+- **Timeline Display**: Interactive historical timeline utilizing JavaScript and the Intersection Observer API.
+- **Cultural Introduction**: Detailed sections on Shanghai's culture, including dialects, opera, and lane culture.
+- **Team Introduction**: Team member profiles displayed in a card format.
+- **Events and Activities**: Listings of city walk events with comprehensive details.
+- **Social Media and Contact Information**: QR codes for social media platforms and contact details.
+
+## General Guidelines
+
+- **Code Separation**: Maintain clear separation between HTML, CSS, and JavaScript files to enhance readability and maintainability. :contentReference[oaicite:0]{index=0}
+
+- **File Naming Conventions**: Use lowercase letters and hyphens for file names (e.g., `index.html`, `style.css`, `script.js`).
+
+- **Encoding**: Ensure all files use UTF-8 encoding without BOM.
+
+## HTML Guidelines
+
+- **Doctype Declaration**: Begin all HTML documents with the `<!DOCTYPE html>` declaration.
+
+- **Language Attribute**: Set the `lang` attribute in the `<html>` tag to specify the document's language (e.g., `<html lang="en">` for English).
+
+- **Character Set**: Define the character set using `<meta charset="UTF-8">`.
+
+- **Semantic Elements**: Utilize semantic HTML5 elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`) to structure content meaningfully.
+
+- **Accessibility**: Implement ARIA (Accessible Rich Internet Applications) roles and attributes to enhance accessibility for assistive technologies. :contentReference[oaicite:1]{index=1}
+
+## CSS Guidelines
+
+- **Organization**: Structure CSS using a logical and consistent methodology, such as SMACSS (Scalable and Modular Architecture for CSS) or BEM (Block Element Modifier).
+
+- **Selectors**: Optimize selectors for performance and clarity. Avoid overly specific selectors to maintain flexibility. :contentReference[oaicite:2]{index=2}
+
+- **Units**: Use relative units (e.g., `em`, `rem`, `%`) for sizing to ensure scalability and responsiveness.
+
+- **Media Queries**: Implement responsive design using CSS media queries to adapt layouts across various devices.
+
+- **Vendor Prefixes**: Utilize tools like Autoprefixer to handle vendor prefixes, ensuring compatibility across different browsers.
+
+## JavaScript Guidelines
+
+- **Variables**: Declare variables using `let` and `const` to maintain block scope and prevent hoisting issues.
+
+- **Functions**: Prefer arrow functions for anonymous functions to preserve the lexical value of `this`.
+
+- **Event Handling**: Attach event listeners using `addEventListener` to promote unobtrusive JavaScript practices.
+
+- **DOM Manipulation**: Minimize direct DOM manipulation. When necessary, use efficient methods like `document.createDocumentFragment()` to batch updates.
+
+- **Performance**: Optimize performance by debouncing or throttling events like `scroll` and `resize`.
+
+## Multilingual Support
+
+- **Language Toggle**: Implement language toggle functionality using JavaScript, storing user preferences in `localStorage`.
+
+- **Content Management**: Maintain separate JSON files for each language's content to streamline updates and scalability.
+
+## Responsive Design
+
+- **Fluid Layouts**: Design layouts using flexible grids and fluid images to accommodate various screen sizes.
+
+- **Breakpoints**: Define breakpoints based on content and design needs rather than specific device sizes.
+
+## Timeline Display
+
+- **Lazy Loading**: Implement lazy loading for images within the timeline to improve page load performance.
+
+- **Intersection Observer**: Utilize the Intersection Observer API to trigger animations or load content as elements enter the viewport.
+
+## Cultural Introduction
+
+- **Content Structuring**: Organize cultural content into distinct sections with clear headings and subheadings.
+
+- **Imagery**: Use high-quality, optimized images with descriptive `alt` text to enhance visual appeal and accessibility.
+
+## Team Introduction
+
+- **Card Layout**: Display team member profiles using a card layout, ensuring consistency in size and spacing.
+
+- **Hover Effects**: Apply subtle hover effects to cards to enhance interactivity without distracting from content.
+
+## Events and Activities
+
+- **Event Details**: Present event information in a structured format, including duration, difficulty, and meeting points.
+
+- **Call to Action**: Include clear call-to-action buttons (e.g., "Register Now") to encourage user engagement.
+
+## Social Media and Contact Information
+
+- **QR Codes**: Ensure QR codes are high-contrast and tested for scannability across different devices.
+
+- **Contact Form**: Implement a contact form with validation to facilitate user inquiries.
+
+## Performance Optimization
+
+- **Minification**: Minify CSS and JavaScript files to reduce file sizes and improve load times.
+
+- **Caching**: Leverage browser caching by setting appropriate cache headers for static assets.
+
+- **Compression**: Enable Gzip or Brotli compression on the server to decrease the size of transmitted files.
+
+## Security Best Practices
+
+- **Content Security Policy (CSP)**: Implement a CSP to mitigate cross-site scripting (XSS) and other code injection attacks.
+
+- **HTTPS**: Serve the website over HTTPS to ensure data integrity and security.
+
+- **Input Validation**: Validate and sanitize all user inputs to prevent injection attacks.
+
+## Testing and Quality Assurance
+
+- **Cross-Browser Testing**: Test the website across multiple browsers and devices to ensure consistent functionality and appearance.
+
+- **Automated Testing**: Implement automated tests for critical JavaScript functions using frameworks like Jest or Mocha.
+
+- **Performance Testing**: Use tools like Lighthouse or WebPageTest to monitor and improve page performance metrics.
+
+## Documentation
+
+- **Code Comments**: Provide clear and concise comments in code to explain complex logic or decisions.
+
+- **README**: Maintain a comprehensive README file outlining project setup, development guidelines, and deployment instructions.
+
+- **Changelog**: Keep a changelog documenting significant changes, bug fixes, and feature additions.
+
+## Version Control
+
+- **Git Usage**: Use Git for version control, committing changes with descriptive messages.
+
+- **Branching Strategy**: Adopt a branching strategy like Git Flow to manage feature development and releases.
+
+## Collaboration
+
+- **Code Reviews**: Conduct regular code reviews to maintain code quality and facilitate knowledge sharing.
+
+- **Issue Tracking**: Utilize an issue tracking system to manage tasks, bugs, and feature requests.
+
+## Continuous Integration/Continuous Deployment (CI/CD)
+
+- **Automation**: Set up CI/CD pipelines to automate testing and deployment processes.
+
+- **Monitoring**: Implement monitoring tools to track website uptime and performance post-deployment.
+
+## Accessibility
+
+- **Keyboard Navigation**: Ensure all interactive elements are accessible via keyboard navigation.
+
+- **Contrast Ratios**: Maintain sufficient color contrast ratios to enhance readability for users with visual impairments.
+
+- **ARIA Landmarks**: Use ARIA landmarks to define page regions, aiding assistive technologies in navigation.
+
+## SEO Best Practices
+
+- **Meta Tags**: Include relevant meta tags (`title`, `description`, `keywords
+::contentReference[oaicite:3]{index=3}
+ 

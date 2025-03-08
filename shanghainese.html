@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Shanghainese dialect, basic phrases, and pronunciation guide">
+    <meta name="keywords" content="Shanghai, Shanghainese, dialect, language, pronunciation, phrases">
+    <title>上海话 | Shanghainese - 上海漫步</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ensure proper rendering and touch zooming -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+    <!-- Header Section with Navigation -->
+    <header role="banner">
+        <div class="logo">
+            <img src="./images/shanghaiwalk-logo.png" alt="ShanghaiWalk Logo" class="logo-img">
+        </div>
+        
+        <div class="language-toggle" aria-label="Language Selection">
+            <button id="en-btn" class="lang-btn" aria-label="Switch to English"><img src="./images/US-flag.png" alt="English"></button>
+            <button id="zh-btn" class="lang-btn" aria-label="Switch to Chinese"><img src="./images/China-flag.png" alt="中文"></button>
+        </div>
+
+        <nav role="navigation" aria-label="Main Navigation">
+            <ul>
+                <li><a href="index.html">首页 | Home</a></li>
+                <li><a href="about.html">关于我们 | About Us</a></li>
+                <li><a href="shanghai-walk.html">上海漫步 | Shanghai Walk</a></li>
+                <li><a href="shanghainese.html" class="active" aria-current="page">上海话 | Shanghainese</a></li>
+                <li><a href="shanghai-opera.html">上海戏曲 | Shanghai Opera</a></li>
+                <li><a href="contact.html">联系我们 | Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Floating Navigation for Mobile and Scroll -->
+    <div class="floating-nav" aria-label="Floating Navigation">
+        <div class="float-left">
+            <img src="./images/shanghaiwalk-logo.png" alt="Mini Logo" class="mini-logo">
+        </div>
+        <div class="float-center">
+            <button class="more-actions" aria-expanded="false" aria-controls="dropdown-menu">
+                <span class="zh">更多选项</span>
+                <span class="en">More Actions</span>
+                <i class="arrow-down" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu" id="dropdown-menu">
+                <a href="index.html"><span class="zh">首页</span><span class="en">Home</span></a>
+                <a href="about.html"><span class="zh">关于我们</span><span class="en">About Us</span></a>
+                <a href="shanghai-walk.html"><span class="zh">上海漫步</span><span class="en">Shanghai Walk</span></a>
+                <a href="shanghainese.html" class="active" aria-current="page"><span class="zh">上海话</span><span class="en">Shanghainese</span></a>
+                <a href="shanghai-opera.html"><span class="zh">上海戏曲</span><span class="en">Shanghai Opera</span></a>
+                <a href="contact.html"><span class="zh">联系我们</span><span class="en">Contact Us</span></a>
+            </div>
+        </div>
+        <div class="float-right">
+            <div class="float-language-toggle" aria-label="Language Selection">
+                <button id="float-en-btn" class="lang-btn" aria-label="Switch to English"><img src="./images/US-flag.png" alt="English"></button>
+                <button id="float-zh-btn" class="lang-btn" aria-label="Switch to Chinese"><img src="./images/China-flag.png" alt="中文"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main role="main">
+        <!-- Dialect Introduction Section -->
+        <section class="dialect-intro" aria-labelledby="dialect-heading">
+            <h1 id="dialect-heading">上海话入门 | Introduction to Shanghainese</h1>
+            
+            <div class="intro-content">
+                <div class="zh">
+                    <p>上海话属于吴语系，是上海地区最具代表性的方言之一。它不仅是一种语言，更是承载着上海历史文化的重要载体。</p>
+                </div>
+                <div class="en">
+                    <p>Shanghainese belongs to the Wu language family and is one of the most representative dialects in Shanghai. It's not just a language, but also an important carrier of Shanghai's history and culture.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Basic Phrases Section -->
+        <section class="basic-phrases" aria-labelledby="phrases-heading">
+            <h2 id="phrases-heading">基本短语 | Basic Phrases</h2>
+            
+            <div class="phrases-grid">
+                <!-- Greeting Phrase Card -->
+                <article class="phrase-card">
+                    <div class="zh">
+                        <h3>打招呼</h3>
+                        <div class="phrase-item">
+                            <p class="shanghainese">侬好</p>
+                            <p class="mandarin">你好</p>
+                            <p class="pinyin">nong hao</p>
+                            <p class="meaning">你好</p>
+                        </div>
+                    </div>
+                    <div class="en">
+                        <h3>Greetings</h3>
+                        <div class="phrase-item">
+                            <p class="shanghainese">Nong Hao</p>
+                            <p class="mandarin">Hello</p>
+                            <p class="pinyin">nong hao</p>
+                            <p class="meaning">Hello</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Thanks Phrase Card -->
+                <article class="phrase-card">
+                    <div class="zh">
+                        <h3>感谢</h3>
+                        <div class="phrase-item">
+                            <p class="shanghainese">谢谢侬</p>
+                            <p class="mandarin">谢谢你</p>
+                            <p class="pinyin">xia xia nong</p>
+                            <p class="meaning">谢谢</p>
+                        </div>
+                    </div>
+                    <div class="en">
+                        <h3>Thanks</h3>
+                        <div class="phrase-item">
+                            <p class="shanghainese">Xia Xia Nong</p>
+                            <p class="mandarin">Thank you</p>
+                            <p class="pinyin">xia xia nong</p>
+                            <p class="meaning">Thank you</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Pronunciation Guide Section -->
+        <section class="pronunciation-guide" aria-labelledby="pronunciation-heading">
+            <h2 id="pronunciation-heading">发音指南 | Pronunciation Guide</h2>
+            
+            <div class="pronunciation-content">
+                <div class="zh">
+                    <div class="guide-item">
+                        <h3>声调特点</h3>
+                        <p>上海话有五个声调，分别是：</p>
+                        <ul>
+                            <li>阴平（高平调）</li>
+                            <li>阳平（低升调）</li>
+                            <li>上声（高降调）</li>
+                            <li>去声（低降调）</li>
+                            <li>入声（短促调）</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="en">
+                    <div class="guide-item">
+                        <h3>Tonal Features</h3>
+                        <p>Shanghainese has five tones:</p>
+                        <ul>
+                            <li>Yin Ping (High Level)</li>
+                            <li>Yang Ping (Low Rising)</li>
+                            <li>Shang Sheng (High Falling)</li>
+                            <li>Qu Sheng (Low Falling)</li>
+                            <li>Ru Sheng (Short)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer role="contentinfo">
+        <p>&copy; 2024 上海漫步 | ShanghaiWalk. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="main.js"></script>
+</body>
+</html> 

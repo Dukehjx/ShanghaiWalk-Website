@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ShanghaiWalk - Explore the culture and history of Shanghai through immersive experiences">
+    <meta name="keywords" content="Shanghai, culture, history, walking tours, Shanghainese, Shanghai Opera">
+    <title>上海漫步 | ShanghaiWalk</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ensure proper rendering and touch zooming -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+    <!-- Header Section with Navigation -->
+    <header role="banner">
+        <div class="logo">
+            <img src="./images/shanghaiwalk-logo.png" alt="ShanghaiWalk Logo" class="logo-img">
+        </div>
+        
+        <div class="language-toggle" aria-label="Language Selection">
+            <button id="en-btn" class="lang-btn" aria-label="Switch to English"><img src="./images/US-flag.png" alt="English"></button>
+            <button id="zh-btn" class="lang-btn" aria-label="Switch to Chinese"><img src="./images/China-flag.png" alt="中文"></button>
+        </div>
+
+        <nav role="navigation" aria-label="Main Navigation">
+            <ul>
+                <li><a href="index.html" class="active" aria-current="page">首页 | Home</a></li>
+                <li><a href="about.html">关于我们 | About Us</a></li>
+                <li><a href="shanghai-walk.html">上海漫步 | Shanghai Walk</a></li>
+                <li><a href="shanghainese.html">上海话 | Shanghainese</a></li>
+                <li><a href="shanghai-opera.html">上海戏曲 | Shanghai Opera</a></li>
+                <li><a href="contact.html">联系我们 | Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Floating Navigation for Mobile and Scroll -->
+    <div class="floating-nav" aria-label="Floating Navigation">
+        <div class="float-left">
+            <img src="./images/shanghaiwalk-logo.png" alt="Mini Logo" class="mini-logo">
+        </div>
+        <div class="float-center">
+            <button class="more-actions" aria-expanded="false" aria-controls="dropdown-menu">
+                <span class="zh">更多选项</span>
+                <span class="en">More Actions</span>
+                <i class="arrow-down" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu" id="dropdown-menu">
+                <a href="index.html" class="active" aria-current="page"><span class="zh">首页</span><span class="en">Home</span></a>
+                <a href="about.html"><span class="zh">关于我们</span><span class="en">About Us</span></a>
+                <a href="shanghai-walk.html"><span class="zh">上海漫步</span><span class="en">Shanghai Walk</span></a>
+                <a href="shanghainese.html"><span class="zh">上海话</span><span class="en">Shanghainese</span></a>
+                <a href="shanghai-opera.html"><span class="zh">上海戏曲</span><span class="en">Shanghai Opera</span></a>
+                <a href="contact.html"><span class="zh">联系我们</span><span class="en">Contact Us</span></a>
+            </div>
+        </div>
+        <div class="float-right">
+            <div class="float-language-toggle" aria-label="Language Selection">
+                <button id="float-en-btn" class="lang-btn" aria-label="Switch to English"><img src="./images/US-flag.png" alt="English"></button>
+                <button id="float-zh-btn" class="lang-btn" aria-label="Switch to Chinese"><img src="./images/China-flag.png" alt="中文"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main role="main">
+        <!-- Vision, Mission & Values Section -->
+        <section class="vision-mission" aria-labelledby="vision-mission-heading">
+            <h2 id="vision-mission-heading"><span class="zh">愿景、使命与价值观</span><span class="en">Vision, Mission & Values</span></h2>
+            <div class="values-container">
+                <div class="value-box vision">
+                    <h3><span class="zh">愿景</span><span class="en">Vision</span></h3>
+                    <div class="content">
+                        <p class="zh">打造上海文化交流的桥梁，让世界感受海派魅力。通过创新的方式展现上海的历史文化，让每个访客都能深入了解这座城市的独特魅力。</p>
+                        <p class="en">Building cultural bridges for Shanghai, connecting its charm with the world. Showcasing Shanghai's history and culture through innovative approaches, enabling every visitor to deeply understand the city's unique appeal.</p>
+                    </div>
+                </div>
+
+                <div class="value-box mission">
+                    <h3><span class="zh">使命</span><span class="en">Mission</span></h3>
+                    <div class="content">
+                        <p class="zh">传承与创新并重，通过沉浸式体验和互动方式，让更多人了解并爱上上海文化。致力于成为上海文化推广的先锋力量。</p>
+                        <p class="en">Balancing tradition with innovation, promoting Shanghai's culture through immersive experiences and interactive approaches. Committed to being a pioneering force in promoting Shanghai's cultural heritage.</p>
+                    </div>
+                </div>
+
+                <div class="value-box values">
+                    <h3><span class="zh">价值观</span><span class="en">Values</span></h3>
+                    <div class="content">
+                        <p class="zh">• 文化传承：尊重历史，保护传统<br>• 开放包容：拥抱多元，促进交流<br>• 创新发展：与时俱进，开拓创新<br>• 共享共赢：合作共生，互利共赢</p>
+                        <p class="en">• Cultural Heritage: Respect history, preserve traditions<br>• Inclusiveness: Embrace diversity, promote exchange<br>• Innovation: Keep pace with times, pioneer new approaches<br>• Shared Success: Collaborate and grow together</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Content Blocks -->
+        <section class="content-blocks" aria-label="Featured Locations">
+            <div class="block">
+                <div class="image-container">
+                    <img src="./images/the-bund-night.jpg" alt="The Bund at Night - Shanghai skyline with historic buildings along the Huangpu River" loading="lazy">
+                </div>
+                <div class="text-content">
+                    <h3>外滩夜景 | The Bund at Night</h3>
+                    <p class="zh">感受上海外滩的万国建筑群，体验黄浦江畔的繁华夜色。</p>
+                    <p class="en">Experience the international architecture of the Bund and the vibrant night view along the Huangpu River.</p>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="image-container">
+                    <img src="./images/yu-garden-night.jpg" alt="Yu Garden - Traditional Chinese garden with pavilions and ponds illuminated at night" loading="lazy">
+                </div>
+                <div class="text-content">
+                    <h3>豫园 | Yu Garden</h3>
+                    <p class="zh">探索明代古典园林，品味老上海的市井文化。</p>
+                    <p class="en">Explore the Ming Dynasty classical garden and taste the local culture of old Shanghai.</p>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="image-container">
+                    <img src="./images/wukang-building-morning.jpg" alt="Wukang Building - Historic French Concession architecture in morning light" loading="lazy">
+                </div>
+                <div class="text-content">
+                    <h3>武康大楼 | Wukang Building</h3>
+                    <p class="zh">漫步法租界，感受上海独特的历史建筑魅力。</p>
+                    <p class="en">Walk through the French Concession and experience Shanghai's unique architectural charm.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer role="contentinfo">
+        <p>&copy; 2024 上海漫步 | ShanghaiWalk. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="main.js"></script>
+    <script src="timeline.js"></script>
+</body>
+</html> 
