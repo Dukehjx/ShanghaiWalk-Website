@@ -51,33 +51,27 @@ header {
 }
 
 .lang-btn {
-    width: 40px;
-    height: 40px;
-    padding: 0;
+    padding: 8px 15px;
     border: 2px solid var(--secondary-color);
     background: white;
-    border-radius: 50%;
+    border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.lang-btn img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 0.9em;
 }
 
 .lang-btn:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0 2px 8px rgba(205, 175, 113, 0.3);
+    background-color: var(--accent-color);
 }
 
 .lang-btn.active {
     border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: white;
     box-shadow: 0 2px 8px rgba(166, 25, 46, 0.3);
 }
 
@@ -1430,5 +1424,10 @@ body.english h3 span.en {
     .more-actions {
         padding: 8px 15px;
         font-size: 0.9em;
+    }
+    
+    .lang-btn {
+        padding: 6px 12px;
+        font-size: 0.8em;
     }
 } 
