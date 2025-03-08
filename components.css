@@ -1,0 +1,712 @@
+/* 导航栏样式 */
+nav {
+    text-align: center;
+    clear: both;
+    padding-top: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: all var(--transition-fast);
+    position: relative;
+    display: inline-block;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--primary-color);
+}
+
+/* 语言切换按钮 */
+.language-toggle {
+    float: right;
+    margin-top: var(--spacing);
+    display: flex;
+    gap: 15px;
+}
+
+.lang-btn {
+    padding: 8px 15px;
+    border: 2px solid var(--secondary-color);
+    background: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 0.9em;
+    position: relative;
+    overflow: hidden;
+}
+
+.lang-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s;
+}
+
+.lang-btn:hover::before {
+    left: 100%;
+}
+
+.lang-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(205, 175, 113, 0.3);
+    background-color: var(--accent-color);
+}
+
+.lang-btn.active {
+    border-color: var(--primary-color);
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 2px 8px rgba(166, 25, 46, 0.3);
+}
+
+/* 浮动导航栏样式 */
+.floating-nav {
+    position: fixed;
+    top: -100px; /* 初始隐藏 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    background: white;
+    border-radius: 50px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    z-index: 2000;
+    transition: top var(--transition-medium), transform var(--transition-medium);
+}
+
+.floating-nav.visible {
+    top: 20px;
+    animation: floatIn 0.5s ease forwards;
+}
+
+@keyframes floatIn {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
+    to {
+        top: 20px;
+        opacity: 1;
+    }
+}
+
+.mini-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform var(--transition-fast);
+}
+
+.mini-logo:hover {
+    transform: rotate(10deg);
+}
+
+.more-actions {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1em;
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+.more-actions::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+}
+
+.more-actions:hover::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+.more-actions:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(166, 25, 46, 0.3);
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid white;
+    margin-left: 5px;
+    transition: transform var(--transition-fast);
+}
+
+.more-actions[aria-expanded="true"] .arrow-down {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 10px 0;
+    margin-top: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    display: none;
+    flex-direction: column;
+    min-width: 200px;
+    opacity: 0;
+    transform: translateY(10px) translateX(-50%);
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.dropdown-menu.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px) translateX(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+}
+
+.dropdown-menu a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+}
+
+.dropdown-menu a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background-color: var(--accent-color);
+    z-index: -1;
+    transition: height var(--transition-fast);
+}
+
+.dropdown-menu a:hover::before {
+    height: 100%;
+}
+
+.dropdown-menu a:hover {
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.dropdown-menu a.active {
+    color: var(--primary-color);
+    font-weight: bold;
+    background-color: rgba(166, 25, 46, 0.05);
+}
+
+.float-language-toggle {
+    display: flex;
+    gap: 10px;
+}
+
+/* 内容块样式 */
+.content-blocks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.block {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: all var(--transition-medium);
+    position: relative;
+}
+
+.block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(to bottom, rgba(166, 25, 46, 0.1), transparent);
+    transition: height var(--transition-medium);
+    z-index: 1;
+}
+
+.block:hover::before {
+    height: 100%;
+}
+
+.block:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.image-container {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 70%, rgba(0, 0, 0, 0.5));
+    z-index: 1;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-medium);
+}
+
+.block:hover .image-container img {
+    transform: scale(1.1);
+}
+
+.text-content {
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.text-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.text-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width var(--transition-medium);
+}
+
+.block:hover .text-content h3::after {
+    width: 100%;
+}
+
+/* 愿景使命区域 */
+.vision-mission {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 40px 30px;
+    background: white;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.vision-mission::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gradient-primary);
+}
+
+.vision-mission h2 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 2em;
+    position: relative;
+    display: inline-block;
+}
+
+.vision-mission h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--secondary-color);
+}
+
+.values-container {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.value-box {
+    flex: 1;
+    min-width: 300px;
+    background: var(--accent-color);
+    border: 2px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    padding: 30px 25px;
+    transition: all var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+}
+
+.value-box::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    opacity: 0.1;
+    transition: all var(--transition-medium);
+}
+
+.value-box:hover::before {
+    transform: scale(10);
+    opacity: 0.05;
+}
+
+.value-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(205, 175, 113, 0.2);
+}
+
+.value-box h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.value-box h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--secondary-color);
+    transition: width var(--transition-medium);
+}
+
+.value-box:hover h3::after {
+    width: 100px;
+}
+
+.value-box .content {
+    text-align: left;
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+}
+
+.value-box .content p {
+    margin-bottom: 0;
+    color: var(--text-color);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+}
+
+.btn:hover::after {
+    animation: ripple 1s ease-out;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(166, 25, 46, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(166, 25, 46, 0.4);
+}
+
+.btn-secondary {
+    background: var(--gradient-secondary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(205, 175, 113, 0.3);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(205, 175, 113, 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(166, 25, 46, 0.2);
+}
+
+/* Cards */
+.card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    transition: all var(--transition-medium);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    padding: 20px;
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-footer {
+    padding: 15px 20px;
+    background: var(--accent-color);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.badge-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.badge-secondary {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.badge-accent {
+    background: var(--accent-color);
+    color: var(--text-color);
+}
+
+/* Alerts */
+.alert {
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.alert-primary {
+    background: rgba(166, 25, 46, 0.1);
+    border-left: 4px solid var(--primary-color);
+    color: var(--primary-dark);
+}
+
+.alert-secondary {
+    background: rgba(205, 175, 113, 0.1);
+    border-left: 4px solid var(--secondary-color);
+    color: var(--secondary-dark);
+}
+
+.alert-info {
+    background: rgba(0, 123, 255, 0.1);
+    border-left: 4px solid #007bff;
+    color: #0056b3;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .values-container {
+        flex-direction: column;
+    }
+    
+    .value-box {
+        margin-bottom: 20px;
+    }
+    
+    .vision-mission h2 {
+        font-size: 1.8em;
+    }
+    
+    .content-blocks {
+        flex-direction: column;
+    }
+    
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+    
+    .language-toggle {
+        float: none;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .logo {
+        float: none;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .floating-nav {
+        width: 95%;
+        padding: 8px 15px;
+    }
+    
+    .mini-logo {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .more-actions {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+    
+    .lang-btn {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+} 

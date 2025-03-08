@@ -1,0 +1,303 @@
+/* 全局样式 */
+:root {
+    --primary-color: #A6192E;  /* 上海传统红 */
+    --primary-light: #D42A42;  /* 亮红色 */
+    --primary-dark: #7A1222;   /* 暗红色 */
+    --secondary-color: #CDAF71; /* 古典金 */
+    --secondary-light: #E5D0A3; /* 亮金色 */
+    --secondary-dark: #A38A4D;  /* 暗金色 */
+    --accent-color: #F5F1E3;   /* 柔和米白 */
+    --text-color: #333;
+    --text-light: #666;
+    --text-dark: #111;
+    --light-bg: #F5F1E3;
+    --dark-bg: #2C2C2C;
+    --spacing: 20px;
+    --border-radius: 10px;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition-fast: 0.3s ease;
+    --transition-medium: 0.5s ease;
+    --transition-slow: 0.8s ease;
+    --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    --gradient-secondary: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+    --gradient-accent: linear-gradient(135deg, var(--accent-color), #FFFFFF);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--accent-color);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(205, 175, 113, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(166, 25, 46, 0.05) 0%, transparent 20%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* Typography enhancements */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+h1 {
+    font-size: 2.8rem;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    font-size: 2.2rem;
+    letter-spacing: -0.3px;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--primary-light);
+}
+
+/* 头部样式 */
+header {
+    background: white;
+    padding: var(--spacing);
+    box-shadow: 0 2px 15px rgba(166, 25, 46, 0.15);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+header.scrolled {
+    box-shadow: 0 5px 20px rgba(166, 25, 46, 0.2);
+    padding: 10px var(--spacing);
+}
+
+.logo {
+    float: left;
+    transition: transform var(--transition-fast);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.logo-img:hover {
+    box-shadow: 0 5px 15px rgba(166, 25, 46, 0.2);
+    transform: rotate(5deg);
+}
+
+/* 主要内容区域 */
+main {
+    margin-top: 180px;
+    padding: var(--spacing);
+    min-height: calc(100vh - 280px);
+}
+
+/* 页脚样式 */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--gradient-secondary);
+    color: white;
+    margin-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gradient-primary);
+}
+
+footer p {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+/* 语言切换相关样式 */
+.en {
+    display: none;
+}
+
+body.english .en {
+    display: block;
+}
+
+body.english .zh {
+    display: none;
+}
+
+/* 对于内联元素（如span）的特殊处理 */
+span.en {
+    display: none;
+}
+
+body.english span.en {
+    display: inline;
+}
+
+body.english span.zh {
+    display: none;
+}
+
+span.zh {
+    display: inline;
+}
+
+/* 导航标签的双语显示 */
+nav ul li a span.zh,
+nav ul li a span.en {
+    display: inline;
+}
+
+body.english nav ul li a span.zh,
+body.english nav ul li a span.en {
+    display: inline;
+}
+
+/* 导航标签中的分隔符 */
+nav ul li a span.zh::after {
+    content: " | ";
+    color: var(--text-color);
+}
+
+/* 标题中的语言切换 */
+h1 span, h2 span, h3 span {
+    display: none;
+}
+
+body.english h1 span.en,
+body.english h2 span.en,
+body.english h3 span.en {
+    display: inline;
+}
+
+.zh h1 span.zh,
+.zh h2 span.zh,
+.zh h3 span.zh {
+    display: inline;
+}
+
+/* Utility classes */
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-primary {
+    color: var(--primary-color);
+}
+
+.text-secondary {
+    color: var(--secondary-color);
+}
+
+.bg-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.bg-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.bg-accent {
+    background-color: var(--accent-color);
+}
+
+.bg-gradient-primary {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.bg-gradient-secondary {
+    background: var(--gradient-secondary);
+    color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing);
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+.mb-5 { margin-bottom: 3rem; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.mt-5 { margin-top: 3rem; }
+
+/* 响应式设计基础 */
+@media (max-width: 768px) {
+    main {
+        margin-top: 300px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+} 

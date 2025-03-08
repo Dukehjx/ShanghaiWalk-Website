@@ -6,9 +6,14 @@
     <meta name="description" content="ShanghaiWalk - Explore the culture and history of Shanghai through immersive experiences">
     <meta name="keywords" content="Shanghai, culture, history, walking tours, Shanghainese, Shanghai Opera">
     <title>上海漫步 | ShanghaiWalk</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="animations.css">
     <!-- Ensure proper rendering and touch zooming -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Header Section with Navigation -->
@@ -18,18 +23,18 @@
         </div>
         
         <div class="language-toggle" aria-label="Language Selection">
-            <button id="en-btn" class="lang-btn" aria-label="Switch to English">English</button>
-            <button id="zh-btn" class="lang-btn" aria-label="Switch to Chinese">中文</button>
+            <button id="en-btn" class="lang-btn interactive-button" aria-label="Switch to English">English</button>
+            <button id="zh-btn" class="lang-btn interactive-button" aria-label="Switch to Chinese">中文</button>
         </div>
 
         <nav role="navigation" aria-label="Main Navigation">
             <ul>
-                <li><a href="index.html" class="active" aria-current="page">首页 | Home</a></li>
-                <li><a href="about.html">关于我们 | About Us</a></li>
-                <li><a href="shanghai-walk.html">上海漫步 | Shanghai Walk</a></li>
-                <li><a href="shanghainese.html">上海话 | Shanghainese</a></li>
-                <li><a href="shanghai-opera.html">上海戏曲 | Shanghai Opera</a></li>
-                <li><a href="contact.html">联系我们 | Contact Us</a></li>
+                <li><a href="index.html" class="active animated-underline" aria-current="page">首页 | Home</a></li>
+                <li><a href="about.html" class="animated-underline">关于我们 | About Us</a></li>
+                <li><a href="shanghai-walk.html" class="animated-underline">上海漫步 | Shanghai Walk</a></li>
+                <li><a href="shanghainese.html" class="animated-underline">上海话 | Shanghainese</a></li>
+                <li><a href="shanghai-opera.html" class="animated-underline">上海戏曲 | Shanghai Opera</a></li>
+                <li><a href="contact.html" class="animated-underline">联系我们 | Contact Us</a></li>
             </ul>
         </nav>
     </header>
@@ -40,7 +45,7 @@
             <img src="./images/shanghaiwalk-logo.png" alt="Mini Logo" class="mini-logo">
         </div>
         <div class="float-center">
-            <button class="more-actions" aria-expanded="false" aria-controls="dropdown-menu">
+            <button class="more-actions interactive-button" aria-expanded="false" aria-controls="dropdown-menu">
                 <span class="zh">更多选项</span>
                 <span class="en">More Actions</span>
                 <i class="arrow-down" aria-hidden="true"></i>
@@ -56,19 +61,54 @@
         </div>
         <div class="float-right">
             <div class="float-language-toggle" aria-label="Language Selection">
-                <button id="float-en-btn" class="lang-btn" aria-label="Switch to English">English</button>
-                <button id="float-zh-btn" class="lang-btn" aria-label="Switch to Chinese">中文</button>
+                <button id="float-en-btn" class="lang-btn interactive-button" aria-label="Switch to English">English</button>
+                <button id="float-zh-btn" class="lang-btn interactive-button" aria-label="Switch to Chinese">中文</button>
             </div>
         </div>
     </div>
 
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="zh reveal-text">探索上海的文化与历史</span>
+                <span class="en reveal-text">Explore Shanghai's Culture & History</span>
+            </h1>
+            <p class="hero-subtitle">
+                <span class="zh reveal-text">通过沉浸式体验感受这座城市的独特魅力</span>
+                <span class="en reveal-text">Experience the unique charm of the city through immersive journeys</span>
+            </p>
+            <div class="hero-buttons">
+                <a href="shanghai-walk.html" class="btn btn-primary interactive-button">
+                    <span class="zh">开始探索</span>
+                    <span class="en">Start Exploring</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="about.html" class="btn btn-outline interactive-button">
+                    <span class="zh">了解更多</span>
+                    <span class="en">Learn More</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-image-container">
+            <div class="hero-image parallax-layer-back" data-speed="0.5"></div>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="scroll-indicator bounce-effect">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
     <!-- Main Content Area -->
     <main role="main">
         <!-- Vision, Mission & Values Section -->
-        <section class="vision-mission" aria-labelledby="vision-mission-heading">
+        <section class="vision-mission scroll-fade-in" aria-labelledby="vision-mission-heading">
             <h2 id="vision-mission-heading"><span class="zh">愿景、使命与价值观</span><span class="en">Vision, Mission & Values</span></h2>
-            <div class="values-container">
-                <div class="value-box vision">
+            <div class="values-container staggered-fade-in">
+                <div class="value-box vision hover-lift">
+                    <div class="value-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
                     <h3><span class="zh">愿景</span><span class="en">Vision</span></h3>
                     <div class="content">
                         <p class="zh">打造上海文化交流的桥梁，让世界感受海派魅力。通过创新的方式展现上海的历史文化，让每个访客都能深入了解这座城市的独特魅力。</p>
@@ -76,7 +116,10 @@
                     </div>
                 </div>
 
-                <div class="value-box mission">
+                <div class="value-box mission hover-lift">
+                    <div class="value-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
                     <h3><span class="zh">使命</span><span class="en">Mission</span></h3>
                     <div class="content">
                         <p class="zh">传承与创新并重，通过沉浸式体验和互动方式，让更多人了解并爱上上海文化。致力于成为上海文化推广的先锋力量。</p>
@@ -84,7 +127,10 @@
                     </div>
                 </div>
 
-                <div class="value-box values">
+                <div class="value-box values hover-lift">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
                     <h3><span class="zh">价值观</span><span class="en">Values</span></h3>
                     <div class="content">
                         <p class="zh">• 文化传承：尊重历史，保护传统<br>• 开放包容：拥抱多元，促进交流<br>• 创新发展：与时俱进，开拓创新<br>• 共享共赢：合作共生，互利共赢</p>
@@ -94,38 +140,297 @@
             </div>
         </section>
 
+        <!-- Statistics Section -->
+        <section class="statistics-section scroll-fade-in">
+            <div class="statistics-container">
+                <div class="statistic-item">
+                    <div class="statistic-icon">
+                        <i class="fas fa-walking"></i>
+                    </div>
+                    <div class="statistic-number counter" data-target="5000">0</div>
+                    <div class="statistic-label">
+                        <span class="zh">年度游客</span>
+                        <span class="en">Annual Visitors</span>
+                    </div>
+                </div>
+                <div class="statistic-item">
+                    <div class="statistic-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="statistic-number counter" data-target="25">0</div>
+                    <div class="statistic-label">
+                        <span class="zh">文化路线</span>
+                        <span class="en">Cultural Routes</span>
+                    </div>
+                </div>
+                <div class="statistic-item">
+                    <div class="statistic-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <div class="statistic-number counter" data-target="100">0</div>
+                    <div class="statistic-label">
+                        <span class="zh">历史地标</span>
+                        <span class="en">Historical Landmarks</span>
+                    </div>
+                </div>
+                <div class="statistic-item">
+                    <div class="statistic-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="statistic-number counter" data-target="98">0</div>
+                    <div class="statistic-label">
+                        <span class="zh">满意度 (%)</span>
+                        <span class="en">Satisfaction (%)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Featured Content Blocks -->
-        <section class="content-blocks" aria-label="Featured Locations">
-            <div class="block">
-                <div class="image-container">
-                    <img src="./images/the-bund-night.jpg" alt="The Bund at Night - Shanghai skyline with historic buildings along the Huangpu River" loading="lazy">
+        <section class="content-blocks scroll-fade-in" aria-label="Featured Locations">
+            <div class="section-header">
+                <h2>
+                    <span class="zh">精选目的地</span>
+                    <span class="en">Featured Destinations</span>
+                </h2>
+                <p class="section-description">
+                    <span class="zh">探索上海最具代表性的地标和文化景点</span>
+                    <span class="en">Explore Shanghai's most iconic landmarks and cultural sites</span>
+                </p>
+            </div>
+            
+            <div class="blocks-container">
+                <div class="block hover-lift scroll-slide-left">
+                    <div class="image-container">
+                        <img src="./images/the-bund-night.jpg" alt="The Bund at Night - Shanghai skyline with historic buildings along the Huangpu River" loading="lazy">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <span class="zh">点击了解更多</span>
+                                <span class="en">Click to learn more</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-content">
+                        <h3>外滩夜景 | The Bund at Night</h3>
+                        <p class="zh">感受上海外滩的万国建筑群，体验黄浦江畔的繁华夜色。</p>
+                        <p class="en">Experience the international architecture of the Bund and the vibrant night view along the Huangpu River.</p>
+                        <a href="shanghai-walk.html#the-bund" class="btn btn-outline btn-sm">
+                            <span class="zh">查看详情</span>
+                            <span class="en">View Details</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="text-content">
-                    <h3>外滩夜景 | The Bund at Night</h3>
-                    <p class="zh">感受上海外滩的万国建筑群，体验黄浦江畔的繁华夜色。</p>
-                    <p class="en">Experience the international architecture of the Bund and the vibrant night view along the Huangpu River.</p>
+
+                <div class="block hover-lift scroll-fade-in">
+                    <div class="image-container">
+                        <img src="./images/yu-garden-night.jpg" alt="Yu Garden - Traditional Chinese garden with pavilions and ponds illuminated at night" loading="lazy">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <span class="zh">点击了解更多</span>
+                                <span class="en">Click to learn more</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-content">
+                        <h3>豫园 | Yu Garden</h3>
+                        <p class="zh">探索明代古典园林，品味老上海的市井文化。</p>
+                        <p class="en">Explore the Ming Dynasty classical garden and taste the local culture of old Shanghai.</p>
+                        <a href="shanghai-walk.html#yu-garden" class="btn btn-outline btn-sm">
+                            <span class="zh">查看详情</span>
+                            <span class="en">View Details</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="block hover-lift scroll-slide-right">
+                    <div class="image-container">
+                        <img src="./images/wukang-building-morning.jpg" alt="Wukang Building - Historic French Concession architecture in morning light" loading="lazy">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <span class="zh">点击了解更多</span>
+                                <span class="en">Click to learn more</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-content">
+                        <h3>武康大楼 | Wukang Building</h3>
+                        <p class="zh">漫步法租界，感受上海独特的历史建筑魅力。</p>
+                        <p class="en">Walk through the French Concession and experience Shanghai's unique architectural charm.</p>
+                        <a href="shanghai-walk.html#wukang" class="btn btn-outline btn-sm">
+                            <span class="zh">查看详情</span>
+                            <span class="en">View Details</span>
+                        </a>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="block">
-                <div class="image-container">
-                    <img src="./images/yu-garden-night.jpg" alt="Yu Garden - Traditional Chinese garden with pavilions and ponds illuminated at night" loading="lazy">
+        <!-- Then & Now Section -->
+        <section class="then-now-section scroll-fade-in">
+            <div class="section-header">
+                <h2>
+                    <span class="zh">今昔对比</span>
+                    <span class="en">Then & Now</span>
+                </h2>
+                <p class="section-description">
+                    <span class="zh">见证上海的变迁与发展</span>
+                    <span class="en">Witness Shanghai's transformation and development</span>
+                </p>
+            </div>
+            
+            <div class="image-comparison">
+                <div class="comparison-slider">
+                    <div class="slider-handle"></div>
                 </div>
-                <div class="text-content">
-                    <h3>豫园 | Yu Garden</h3>
-                    <p class="zh">探索明代古典园林，品味老上海的市井文化。</p>
-                    <p class="en">Explore the Ming Dynasty classical garden and taste the local culture of old Shanghai.</p>
+                <div class="before">
+                    <img src="./images/shanghai-old.jpg" alt="Shanghai in the 1930s">
+                    <div class="label">
+                        <span class="zh">1930年代</span>
+                        <span class="en">1930s</span>
+                    </div>
+                </div>
+                <div class="after">
+                    <img src="./images/shanghai-new.jpg" alt="Shanghai today">
+                    <div class="label">
+                        <span class="zh">今日</span>
+                        <span class="en">Today</span>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="block">
-                <div class="image-container">
-                    <img src="./images/wukang-building-morning.jpg" alt="Wukang Building - Historic French Concession architecture in morning light" loading="lazy">
+        <!-- Testimonials Section -->
+        <section class="testimonials-section scroll-fade-in">
+            <div class="section-header">
+                <h2>
+                    <span class="zh">游客评价</span>
+                    <span class="en">Visitor Testimonials</span>
+                </h2>
+            </div>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="zh">上海漫步的文化之旅让我对这座城市有了全新的认识。导游的讲解深入浅出，让我了解了许多鲜为人知的历史故事。</p>
+                        <p class="en">ShanghaiWalk's cultural tour gave me a completely new understanding of the city. The guide's explanations were accessible yet profound, introducing me to many little-known historical stories.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="./images/testimonial-1.jpg" alt="Testimonial Author">
+                        </div>
+                        <div class="author-info">
+                            <h4>
+                                <span class="zh">李明</span>
+                                <span class="en">Li Ming</span>
+                            </h4>
+                            <p>
+                                <span class="zh">北京游客</span>
+                                <span class="en">Visitor from Beijing</span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-content">
-                    <h3>武康大楼 | Wukang Building</h3>
-                    <p class="zh">漫步法租界，感受上海独特的历史建筑魅力。</p>
-                    <p class="en">Walk through the French Concession and experience Shanghai's unique architectural charm.</p>
+                
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="zh">作为一个外国游客，我非常感谢上海漫步提供的双语服务。他们的上海话课程也很有趣，让我学到了一些实用的当地表达。</p>
+                        <p class="en">As a foreign visitor, I greatly appreciated ShanghaiWalk's bilingual services. Their Shanghainese language class was also fun and taught me some useful local expressions.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="./images/testimonial-2.jpg" alt="Testimonial Author">
+                        </div>
+                        <div class="author-info">
+                            <h4>
+                                <span class="zh">Sarah Johnson</span>
+                                <span class="en">Sarah Johnson</span>
+                            </h4>
+                            <p>
+                                <span class="zh">美国游客</span>
+                                <span class="en">Visitor from USA</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="zh">上海戏曲体验是我此行最难忘的部分。能够近距离接触这种传统艺术形式，并了解其背后的文化意义，真是太棒了。</p>
+                        <p class="en">The Shanghai Opera experience was the most memorable part of my trip. Being able to get up close with this traditional art form and understand its cultural significance was amazing.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="./images/testimonial-3.jpg" alt="Testimonial Author">
+                        </div>
+                        <div class="author-info">
+                            <h4>
+                                <span class="zh">田中健太</span>
+                                <span class="en">Kenta Tanaka</span>
+                            </h4>
+                            <p>
+                                <span class="zh">日本游客</span>
+                                <span class="en">Visitor from Japan</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-controls">
+                <button class="prev-testimonial">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="testimonial-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <button class="next-testimonial">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section scroll-fade-in">
+            <div class="newsletter-container">
+                <div class="newsletter-content">
+                    <h2>
+                        <span class="zh">订阅我们的通讯</span>
+                        <span class="en">Subscribe to Our Newsletter</span>
+                    </h2>
+                    <p>
+                        <span class="zh">获取最新的活动信息、文化见解和特别优惠</span>
+                        <span class="en">Get the latest event updates, cultural insights, and special offers</span>
+                    </p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" placeholder="您的电子邮箱 | Your Email" required>
+                            <button type="submit" class="btn btn-primary">
+                                <span class="zh">订阅</span>
+                                <span class="en">Subscribe</span>
+                            </button>
+                        </div>
+                        <div class="form-privacy">
+                            <label>
+                                <input type="checkbox" required>
+                                <span class="zh">我同意接收上海漫步的电子邮件通讯</span>
+                                <span class="en">I agree to receive email newsletters from ShanghaiWalk</span>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="newsletter-decoration">
+                    <div class="decoration-element float-effect"></div>
                 </div>
             </div>
         </section>
@@ -133,11 +438,106 @@
 
     <!-- Footer Section -->
     <footer role="contentinfo">
-        <p>&copy; 2024 上海漫步 | ShanghaiWalk. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="./images/shanghaiwalk-logo.png" alt="ShanghaiWalk Logo" class="footer-logo-img">
+                <h3>上海漫步 | ShanghaiWalk</h3>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>
+                        <span class="zh">快速链接</span>
+                        <span class="en">Quick Links</span>
+                    </h4>
+                    <ul>
+                        <li><a href="index.html">
+                            <span class="zh">首页</span>
+                            <span class="en">Home</span>
+                        </a></li>
+                        <li><a href="about.html">
+                            <span class="zh">关于我们</span>
+                            <span class="en">About Us</span>
+                        </a></li>
+                        <li><a href="shanghai-walk.html">
+                            <span class="zh">上海漫步</span>
+                            <span class="en">Shanghai Walk</span>
+                        </a></li>
+                        <li><a href="contact.html">
+                            <span class="zh">联系我们</span>
+                            <span class="en">Contact Us</span>
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>
+                        <span class="zh">联系方式</span>
+                        <span class="en">Contact</span>
+                    </h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@shanghaijourney.com">info@shanghaijourney.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+86 21 1234 5678</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="zh">上海市黄浦区南京东路123号</span>
+                            <span class="en">123 East Nanjing Road, Huangpu District, Shanghai</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>
+                        <span class="zh">关注我们</span>
+                        <span class="en">Follow Us</span>
+                    </h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="WeChat" class="social-icon">
+                            <i class="fab fa-weixin"></i>
+                        </a>
+                        <a href="#" aria-label="Weibo" class="social-icon">
+                            <i class="fab fa-weibo"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="Facebook" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 上海漫步 | ShanghaiWalk. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">
+                    <span class="zh">隐私政策</span>
+                    <span class="en">Privacy Policy</span>
+                </a>
+                <a href="#">
+                    <span class="zh">使用条款</span>
+                    <span class="en">Terms of Use</span>
+                </a>
+            </div>
+        </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <!-- JavaScript Files -->
     <script src="main.js"></script>
-    <script src="timeline.js"></script>
+    <script src="scroll-effects.js"></script>
+    <script src="slider.js"></script>
 </body>
 </html> 
