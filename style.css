@@ -232,6 +232,64 @@ footer {
     margin-top: 50px;
 }
 
+/* Modern Responsive Design Additions */
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+    .logo-img {
+        width: 60px;
+        height: 60px;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+    }
+    nav ul li {
+        margin: 8px 0;
+    }
+    .language-toggle {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 0.98rem;
+    }
+    header {
+        padding: 8px 0;
+    }
+    .logo-img {
+        width: 44px;
+        height: 44px;
+    }
+    nav {
+        height: auto;
+        padding-top: 8px;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+    nav ul li {
+        margin: 6px 0;
+    }
+    .language-toggle {
+        flex-direction: row;
+        gap: 6px;
+    }
+}
+
+img, .logo-img, .mini-logo {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .values-container {
