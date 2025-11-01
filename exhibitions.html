@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our Shanghai Opera exhibitions showcasing traditional culture through immersive experiences">
+    <meta name="keywords" content="Shanghai, exhibitions, opera, culture, 沪剧, 展览">
+    <title>展览 | Exhibitions - 上海漫步</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="animations.css">
+    <!-- Ensure proper rendering and touch zooming -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Exhibition-specific styles */
+        .exhibitions-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 8rem 0 4rem 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .exhibitions-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('./images/show1/1.jpg') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .exhibitions-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .exhibitions-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            opacity: 0.95;
+        }
+
+        .exhibition-section {
+            max-width: var(--max-width);
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .exhibition-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .exhibition-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .exhibition-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 1.5rem;
+            color: white;
+            text-align: center;
+        }
+
+        .exhibition-header.show2-theme {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .exhibition-header h2 {
+            font-size: 2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .exhibition-header .date {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .exhibition-content {
+            padding: 1.5rem;
+        }
+
+        .exhibition-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .exhibition-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+            padding: 1rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.2);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 1rem;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .lightbox-prev {
+            left: 2rem;
+        }
+
+        .lightbox-next {
+            right: 2rem;
+        }
+
+        .stats-row {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .exhibitions-hero {
+                padding: 6rem 0 3rem 0;
+            }
+
+            .exhibitions-hero h1 {
+                font-size: 2rem;
+            }
+
+            .exhibitions-hero p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .exhibition-section {
+                margin: 1.5rem auto;
+                padding: 0 1rem;
+            }
+
+            .exhibition-card {
+                margin-bottom: 2rem;
+            }
+
+            .exhibition-header {
+                padding: 1.2rem;
+            }
+
+            .exhibition-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .exhibition-header .date {
+                font-size: 0.9rem;
+            }
+
+            .exhibition-content {
+                padding: 1.2rem;
+            }
+
+            .exhibition-description {
+                font-size: 0.95rem;
+                margin-bottom: 1rem;
+            }
+
+            .exhibition-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 0.8rem;
+            }
+
+            .lightbox-nav {
+                font-size: 1.5rem;
+                padding: 0.5rem;
+            }
+
+            .lightbox-prev {
+                left: 0.5rem;
+            }
+
+            .lightbox-next {
+                right: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section with Navigation -->
+    <header role="banner">
+        <div class="header-container" style="width:100%;max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;">
+            <div class="logo">
+                <img src="./images/shanghaiwalk-logo.png" alt="ShanghaiWalk Logo" class="logo-img">
+            </div>
+            <nav role="navigation" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="index.html" class="animated-underline">首页 | Home</a></li>
+                    <li><a href="exhibitions.html" class="active animated-underline" aria-current="page">展览 | Exhibitions</a></li>
+                    <li><a href="about.html" class="animated-underline">关于我们 | About Us</a></li>
+                    <li><a href="shanghai-walk.html" class="animated-underline">上海漫步 | Shanghai Walk</a></li>
+                    <li><a href="shanghainese.html" class="animated-underline">上海话 | Shanghainese</a></li>
+                    <li><a href="shanghai-opera.html" class="animated-underline">上海戏曲 | Shanghai Opera</a></li>
+                    <li><a href="contact.html" class="animated-underline">联系我们 | Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="language-toggle" aria-label="Language Selection">
+                <button id="en-btn" class="lang-btn interactive-button" aria-label="Switch to English">English</button>
+                <button id="zh-btn" class="lang-btn interactive-button" aria-label="Switch to Chinese">中文</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Navigation for Mobile and Scroll -->
+    <div class="floating-nav" aria-label="Floating Navigation">
+        <div class="float-left">
+            <img src="./images/shanghaiwalk-logo.png" alt="Mini Logo" class="mini-logo">
+        </div>
+        <div class="float-center">
+            <button class="more-actions interactive-button" aria-expanded="false" aria-controls="dropdown-menu">
+                <span class="zh">更多选项</span>
+                <span class="en">More Actions</span>
+                <i class="arrow-down" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu" id="dropdown-menu">
+                <a href="index.html"><span class="zh">首页</span><span class="en">Home</span></a>
+                <a href="exhibitions.html" class="active" aria-current="page"><span class="zh">展览</span><span class="en">Exhibitions</span></a>
+                <a href="about.html"><span class="zh">关于我们</span><span class="en">About Us</span></a>
+                <a href="shanghai-walk.html"><span class="zh">上海漫步</span><span class="en">Shanghai Walk</span></a>
+                <a href="shanghainese.html"><span class="zh">上海话</span><span class="en">Shanghainese</span></a>
+                <a href="shanghai-opera.html"><span class="zh">上海戏曲</span><span class="en">Shanghai Opera</span></a>
+                <a href="contact.html"><span class="zh">联系我们</span><span class="en">Contact Us</span></a>
+            </div>
+        </div>
+        <div class="float-right">
+            <div class="float-language-toggle" aria-label="Language Selection">
+                <button id="float-en-btn" class="lang-btn interactive-button" aria-label="Switch to English">English</button>
+                <button id="float-zh-btn" class="lang-btn interactive-button" aria-label="Switch to Chinese">中文</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="exhibitions-hero">
+        <h1>
+            <span class="zh">我们的展览</span>
+            <span class="en">Our Exhibitions</span>
+        </h1>
+        <p>
+            <span class="zh">通过沉浸式展览体验，让沪剧走进年轻人的生活，让传统文化焕发新的活力</span>
+            <span class="en">Bringing Shanghai Opera to life through immersive exhibitions, revitalizing traditional culture for younger generations</span>
+        </p>
+    </section>
+
+    <!-- Main Content Area -->
+    <main role="main">
+        <!-- Exhibition 1: 穿越时空的戏韵 -->
+        <section class="exhibition-section">
+            <div class="exhibition-card scroll-fade-in">
+                <div class="exhibition-header">
+                    <h2>
+                        <span class="zh">穿越时空的戏韵</span>
+                        <span class="en">Timeless Opera Melodies</span>
+                    </h2>
+                    <p class="date">
+                        <span class="zh">2024年7月29日</span>
+                        <span class="en">July 29, 2024</span>
+                    </p>
+                </div>
+                <div class="exhibition-content">
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">
+                                <span class="zh">参观观众</span>
+                                <span class="en">Visitors</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1</div>
+                            <div class="stat-label">
+                                <span class="zh">展览天数</span>
+                                <span class="en">Exhibition Days</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">
+                                <span class="zh">难忘回忆</span>
+                                <span class="en">Memorable Moments</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exhibition-description">
+                        <p class="zh">
+                            我们在7月29日组织策划并完成了第一次线下展览实践：《穿越时空的戏韵》。当天有百余民观众参与我们的展览，民国布景、唱段回响、周边兑换、换装上台……从观众走进展厅的第一秒开始，我们就想让"看展"不再只是"看"，而是让观众们身临其境地感受沪剧，让沪剧不止是剧场里的表演，而成为生活中可以互动、可以收藏、可以感同身受的情感现场。从而也能吸引到更多的年轻人，让老年人和年轻人通过沪剧也有了更多的交流。
+                        </p>
+                        <p class="en">
+                            On July 29th, we organized and completed our first offline exhibition: "Timeless Opera Melodies". Over a hundred visitors participated in our exhibition, featuring Republic-era settings, opera performances, merchandise exchanges, and costume experiences. From the moment visitors entered the exhibition hall, we aimed to transform "viewing" into an immersive experience. Shanghai Opera became more than just a theater performance—it became an interactive, collectible, and emotionally resonant experience in everyday life. This approach attracted younger audiences and facilitated intergenerational communication between elderly and young people through Shanghai Opera.
+                        </p>
+                    </div>
+
+                    <div class="exhibition-gallery" id="gallery-show1">
+                        <div class="gallery-item" data-index="0">
+                            <img src="./images/show1/1.jpg" alt="Exhibition Scene 1" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="zh">展览现场</span>
+                                <span class="en">Exhibition Scene</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-index="1">
+                            <img src="./images/show1/2.jpg" alt="Exhibition Scene 2" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="zh">民国布景</span>
+                                <span class="en">Republic Era Setting</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-index="2">
+                            <img src="./images/show1/3.jpg" alt="Exhibition Scene 3" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="zh">签到台</span>
+                                <span class="en">Check-in Desk</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-index="3">
+                            <img src="./images/show1/4.jpg" alt="Exhibition Scene 4" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="zh">现场照片</span>
+                                <span class="en">Exhibition Photos</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-index="4">
+                            <img src="./images/show1/5.jpg" alt="Exhibition Scene 5" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="zh">换装上台</span>
+                                <span class="en">Costume Change and Performance</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-index="5">
+                            <img src="./images/show1/6.jpg" alt="Exhibition Scene 6" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="zh">文化交流</span>
+                                <span class="en">Cultural Exchange</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-index="6">
+                            <img src="./images/show1/7.jpg" alt="Exhibition Scene 7" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="zh">沪剧展示</span>
+                                <span class="en">Opera Display</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-index="7">
+                            <img src="./images/show1/8.jpg" alt="Exhibition Scene 8" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="zh">成员合照</span>
+                                <span class="en">Group Photo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exhibition 2: 日出 -->
+        <section class="exhibition-section">
+            <div class="exhibition-card scroll-fade-in">
+                <div class="exhibition-header show2-theme">
+                    <h2>
+                        <span class="zh">日出 · 沪剧展览</span>
+                        <span class="en">Sunrise · Shanghai Opera Exhibition</span>
+                    </h2>
+                    <p class="date">
+                        <span class="zh">2025年9月22日 - 2025年9月25日</span>
+                        <span class="en">September 22-25, 2025</span>
+                    </p>
+                </div>
+                <div class="exhibition-content">
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">
+                                <span class="zh">展览天数</span>
+                                <span class="en">Exhibition Days</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">
+                                <span class="zh">年级覆盖</span>
+                                <span class="en">Grades Covered</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1</div>
+                            <div class="stat-label">
+                                <span class="zh">校园合作</span>
+                                <span class="en">School Partnership</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exhibition-description">
+                        <p class="zh">
+                            第二次《日出》沪剧展览于2025年9月22日至2025年9月25日在诺达双语学校进行了为期一周的展出。本次展览以曹禺经典名作《日出》为主题，将中国话剧的文学精神与沪剧的地方韵味相融合，在校园内掀起一阵文化热潮。展览面向八至十一年级学生开放，周一至周五持续进行。静态展区以图文形式展示沪剧的发展脉络，并重点介绍曹禺名作《日出》的改编。沪剧版《日出》在保留原作现实主义精神的同时，通过唱腔与表演展现了更细腻的人物情感。
+                        </p>
+                        <p class="en">
+                            Our second exhibition, "Sunrise Shanghai Opera Exhibition," was held from September 22 to September 25, 2025, at Nord Anglia Bilingual School for a week-long showcase. The exhibition centered on Cao Yu's classic masterpiece "Sunrise," merging the literary spirit of Chinese drama with the regional charm of Shanghai Opera, sparking a cultural wave on campus. Open to students from grades 8 to 11, the exhibition ran continuously from Monday to Friday. The static exhibition area displayed the development of Shanghai Opera through visual and textual presentations, with special emphasis on the adaptation of Cao Yu's renowned work "Sunrise." The Shanghai Opera version of "Sunrise" preserved the realism of the original work while showcasing more nuanced character emotions through vocal performances and acting.
+                        </p>
+                    </div>
+
+                    <div class="exhibition-gallery" id="gallery-show2">
+                        <div class="gallery-item" data-index="0">
+                            <img src="./images/show2/1.jpg" alt="Sunrise Exhibition Scene 1" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="zh">展览现场</span>
+                                <span class="en">Exhibition Scene</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-index="1">
+                            <img src="./images/show2/2.jpg" alt="Sunrise Exhibition Scene 2" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="zh">《日出》主题展示</span>
+                                <span class="en">"Sunrise" Theme Display</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-index="2">
+                            <img src="./images/show2/3.jpg" alt="Sunrise Exhibition Scene 3" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="zh">学生参观</span>
+                                <span class="en">Student Visitors</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-index="3">
+                            <img src="./images/show2/4.jpg" alt="Sunrise Exhibition Scene 4" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="zh">文化传承</span>
+                                <span class="en">Cultural Heritage</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-index="4">
+                            <img src="./images/show2/5.jpg" alt="Sunrise Exhibition Scene 5" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="zh">戏曲艺术</span>
+                                <span class="en">Opera Art</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item" data-index="5">
+                            <img src="./images/show2/6.jpg" alt="Sunrise Exhibition Scene 6" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span class="zh">校园文化活动</span>
+                                <span class="en">Campus Cultural Event</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="lightbox-nav lightbox-prev" aria-label="Previous">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <img src="" alt="Exhibition Image">
+            <button class="lightbox-nav lightbox-next" aria-label="Next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="./images/shanghaiwalk-logo.png" alt="ShanghaiWalk Logo" class="footer-logo-img">
+                <h3>上海漫步 | ShanghaiWalk</h3>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>
+                        <span class="zh">快速链接</span>
+                        <span class="en">Quick Links</span>
+                    </h4>
+                    <ul>
+                        <li><a href="index.html">
+                            <span class="zh">首页</span>
+                            <span class="en">Home</span>
+                        </a></li>
+                        <li><a href="exhibitions.html">
+                            <span class="zh">展览</span>
+                            <span class="en">Exhibitions</span>
+                        </a></li>
+                        <li><a href="about.html">
+                            <span class="zh">关于我们</span>
+                            <span class="en">About Us</span>
+                        </a></li>
+                        <li><a href="contact.html">
+                            <span class="zh">联系我们</span>
+                            <span class="en">Contact Us</span>
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>
+                        <span class="zh">联系方式</span>
+                        <span class="en">Contact</span>
+                    </h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@shanghaijourney.com">info@shanghaijourney.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+86 21 1234 5678</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="zh">上海市黄浦区南京东路123号</span>
+                            <span class="en">123 East Nanjing Road, Huangpu District, Shanghai</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>
+                        <span class="zh">关注我们</span>
+                        <span class="en">Follow Us</span>
+                    </h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="WeChat" class="social-icon">
+                            <i class="fab fa-weixin"></i>
+                        </a>
+                        <a href="#" aria-label="Weibo" class="social-icon">
+                            <i class="fab fa-weibo"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="Facebook" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 上海漫步 | ShanghaiWalk. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">
+                    <span class="zh">隐私政策</span>
+                    <span class="en">Privacy Policy</span>
+                </a>
+                <a href="#">
+                    <span class="zh">使用条款</span>
+                    <span class="en">Terms of Use</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript Files -->
+    <script src="main.js"></script>
+    <script src="scroll-effects.js"></script>
+    <script>
+        // Lightbox functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = lightbox.querySelector('img');
+            const closeBtn = lightbox.querySelector('.lightbox-close');
+            const prevBtn = lightbox.querySelector('.lightbox-prev');
+            const nextBtn = lightbox.querySelector('.lightbox-next');
+            
+            let currentGallery = [];
+            let currentIndex = 0;
+
+            // Open lightbox
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const galleryId = this.closest('.exhibition-gallery').id;
+                    currentGallery = Array.from(document.querySelectorAll(`#${galleryId} .gallery-item img`));
+                    currentIndex = parseInt(this.dataset.index);
+                    
+                    showImage(currentIndex);
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close lightbox
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            // Navigate images
+            prevBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+                showImage(currentIndex);
+            });
+
+            nextBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                currentIndex = (currentIndex + 1) % currentGallery.length;
+                showImage(currentIndex);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (!lightbox.classList.contains('active')) return;
+                
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') prevBtn.click();
+                if (e.key === 'ArrowRight') nextBtn.click();
+            });
+
+            function showImage(index) {
+                lightboxImg.src = currentGallery[index].src;
+                lightboxImg.alt = currentGallery[index].alt;
+            }
+        });
+    </script>
+</body>
+</html>
+
